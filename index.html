@@ -48,7 +48,24 @@
     .modal-h { padding:12px 16px; font-weight:800; border-bottom:1px solid var(--border) }
     .modal-b { padding:16px }
     .modal-f { padding:12px 16px; border-top:1px solid var(--border); display:flex; gap:8px; justify-content:flex-end }
-  </style>
+  
+/* --- Universal mobile overflow fix --- */
+input, select, textarea, button {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+.section, .card {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+</style>
 <style id="mobile-override">
 
 /* === HDH CODE v2.8.0 — Mobile/Black Text Override (iPhone 13 Pro Max friendly) === */
@@ -91,6 +108,23 @@ input[type="date"], input[type="number"], input[type="password"], input[type="te
   .row-item{ padding:8px !important; }
 }
 /* END override */
+
+
+/* --- Universal mobile overflow fix --- */
+input, select, textarea, button {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+.section, .card {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 
 </style>
 </head>
@@ -469,7 +503,24 @@ document.getElementById('r-print').addEventListener('click', ()=>{
   const N=document.getElementById('r-machine').value; const from=document.getElementById('r-from').value; const to=document.getElementById('r-to').value; 
   const tableHTML=document.getElementById('r-table').outerHTML; 
   const w=window.open('', '_blank'); 
-  w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>HDH CODE – export</title><style>body{font-family:Arial,sans-serif;padding:16px}h1{font-size:18px;margin:0 0 8px}p{margin:0 0 12px}table{width:100%;border-collapse:collapse}th,td{border:1px solid #000;padding:6px 8px;text-align:left}th{background:#f0f0f0}</style></head><body><h1>HDH CODE – hromadný export</h1><p>Stroj N: <b>${N}</b> | Období: <b>${from}</b> – <b>${to}</b></p>${tableHTML}<script>window.onload=()=>window.print();<\/script>
+  w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>HDH CODE – export</title><style>body{font-family:Arial,sans-serif;padding:16px}h1{font-size:18px;margin:0 0 8px}p{margin:0 0 12px}table{width:100%;border-collapse:collapse}th,td{border:1px solid #000;padding:6px 8px;text-align:left}th{background:#f0f0f0}
+/* --- Universal mobile overflow fix --- */
+input, select, textarea, button {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+.section, .card {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+</style></head><body><h1>HDH CODE – hromadný export</h1><p>Stroj N: <b>${N}</b> | Období: <b>${from}</b> – <b>${to}</b></p>${tableHTML}<script>window.onload=()=>window.print();<\/script>
 <!-- Popup Add Machine -->
 <div id="popupAddMachine" class="modal" style="display:none;
  position:fixed; top:0; left:0; width:100%; height:100%;
